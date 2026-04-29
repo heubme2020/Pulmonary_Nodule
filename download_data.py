@@ -19,7 +19,7 @@ def download_hugging_face_data(data_name, dst_folder):
                 repo_type="dataset",
                 local_dir=dst_folder,
                 local_dir_use_symlinks=False,  # 避免使用符号链接，确保是真实文件
-                token="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"  # ← 替换为你的 token
+                token=""  # ← 替换为你的 token
             )
             break
         except ConnectionError as e:
@@ -30,7 +30,6 @@ def download_hugging_face_data(data_name, dst_folder):
 
 
 def download_tcia_data(data_name, dst_folder):
-    # nbia.getToken(user= "heubme", pw= "12o34o56o")
     data = nbia.getSeries(collection=data_name, modality='CT')
     # data = nbia.getSeries(modality="CT", api_url="nlst")
     # data = nbia.downloadSeries("manifest-NLST_allCT.tcia", input_type="manifest")
